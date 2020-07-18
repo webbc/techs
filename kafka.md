@@ -111,50 +111,6 @@ bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
 
-## 少三2使用
-
-![image](https://raw.githubusercontent.com/webbc/webbc.github.io/master/kafka/ss2_kafka.png)
-
-### Topic
-
-只有1个，ngame2_log，存储游戏数据日志，副本2个
-
-### 生产者
-
-Broom进程
-
-### 消费者
-
-- gmscribe
-
-消费数据，将需要的数据写入MySQL，然后第二日根据昨日数据计算出运营数据，提供给GM后台查询
-
-- scribe
-
-消费数据，将需要的数据保存成文件的形式，提供给BA。主要生成KPI数据、生态行为日志
-
-- snp_scribe
-
-消费数据，将需要的数据保存到MySQL，0点根据当前状态从MySQL中读取数据，写入文件，提供给BA。主要生成快照数据
-
-- timedb_scribe
-
-消费数据，将需要的数据保存成文件的形式，提供给BA，BA入库后，提供接口给GM后台查询玩家行为日志
-
-### Kafka版本
-
-kafka_2.11-1.1.1
-
-### Kafka客户端
-
-- Producer 
-
-用的golang写的sarama库
-
-- Consumer
-
-用的confluent-kafka-go库，这个是用cgo调libkafkard库，这个是kafka官网推荐的golang客户端
-
 
 ## 集群部署方案
 
