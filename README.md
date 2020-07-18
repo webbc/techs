@@ -3,4 +3,4 @@
 
 ### 大数据相关
 
-[Kafka](../kafka.md)
+[Kafka](https://github.com/webbc/techs/blob/master/kafka.md)
